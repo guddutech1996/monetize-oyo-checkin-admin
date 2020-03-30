@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { Slide } from 'react-slideshow-image';
 import './slider-banner.css'
+import Banner from '../banner';
  
-const slideImages = [
-  '/entertainment.jpg',
-  '/entertainment.jpg',
-
-
-];
  
 const properties = {
   duration: 2000,
@@ -22,19 +17,23 @@ const properties = {
 }
  
 class SlideBanner extends Component {
+
+    state = {
+        slideBanners: [],
+        index: 0 
+    }
     render(){
+        console.log("Banners prop is");
+        console.log(this.props.banners);
+        const banners = this.props.banners;
     return (
       <div className="slide-container">
-        <Slide {...properties}>
-          <div className="each-slide">
-            <div  id="banner-width" style={{'backgroundImage': `url(${slideImages[0]})`}}>
-            </div>
-          </div>
-          <div className="each-slide">
-            <div id="banner-width" style={{'backgroundImage': `url(${slideImages[1]})`}}>
-            </div>
-          </div>
-        </Slide>
+        {<Slide {...properties}>
+        {banners.map(banner => 
+            <Banner banner = {banner}/>
+        )}
+        </Slide> 
+        }
       </div>
     )
     }
