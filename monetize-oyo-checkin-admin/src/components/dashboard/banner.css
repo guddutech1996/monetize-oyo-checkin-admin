@@ -1,0 +1,7 @@
+#banner-width {
+    width: 10%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid red;
+  }
